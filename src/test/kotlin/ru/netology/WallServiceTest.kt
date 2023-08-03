@@ -23,7 +23,13 @@ class WallServiceTest {
         canPin = false,
         canDelete = false,
         copyright = CopyRight(88, "ru.netology", "Ivan", "user"),
-        likes = Likes(145, userLikes = true, canLike = false, canPublish = false)
+        likes = Likes(145, userLikes = true, canLike = false, canPublish = false),
+        donut = null,
+        geo = null,
+        postSource = null,
+        views = null,
+        reposts = null,
+        comments = null
     )
 
     @Test
