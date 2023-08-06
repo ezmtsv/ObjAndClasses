@@ -66,20 +66,20 @@ class Views {
     val count: Int = 0
 }
 
-class PostSource (
+class PostSource(
     val type: String = "VK",
     val platform: String = "android",
     val data: String = "profile_activity",
     val url: URL = URL("https://dev.vk.com/ru/reference/objects/post?ref=old_portal")
 )
 
-class Geo (
+class Geo(
     val type: String = "",
     val coordinates: String = "",
     val place: Place?
 )
 
-class Place (
+class Place(
     val id: Int = 0,
     val title: String = "",
     val latitude: Int = 0,
@@ -94,7 +94,7 @@ class Place (
     val address: String = ""
 )
 
-class Placeholder (
+class Placeholder(
     val id: Int = 0,
     val title: String = "",
     val latitude: Int = 0,
@@ -108,7 +108,8 @@ class Placeholder (
     val city: Int = 0,
     val address: String = ""
 )
-class Donut (
+
+class Donut(
     val isDonut: Boolean = false,
     val paidDuration: Int = 0,
     val placeholder: Placeholder,
@@ -167,8 +168,12 @@ fun main() {
     for (i in 0..10) {
         val copy = CopyRight(i)
         val like = Likes(i + 10)
-        WallService.add(Post(WallService.lastPost, likes = like, copyright = copy, donut = null,
-            geo = null, postSource = null, views = null, reposts = null, comments = null))
+        WallService.add(
+            Post(
+                WallService.lastPost, likes = like, copyright = copy, donut = null,
+                geo = null, postSource = null, views = null, reposts = null, comments = null
+            )
+        )
     }
 //    for (post in WallService.getPosts()) {
 //        println(post)
@@ -176,23 +181,19 @@ fun main() {
 
     val copy = CopyRight(5)
     val like = Likes(10)
-    val post1 = Post(17, ownerId = 17, createdBy = 45, likes = like, copyright = copy, donut = null,
-        geo = null, postSource = null, views = null, reposts = null, comments = null)
+    val post1 = Post(
+        17, ownerId = 17, createdBy = 45, likes = like, copyright = copy, donut = null,
+        geo = null, postSource = null, views = null, reposts = null, comments = null
+    )
     checkPost(post1)
-    val post2 = Post(7, ownerId = 7, createdBy = 45, likes = like, copyright = copy, donut = null,
-        geo = null, postSource = null, views = null, reposts = null, comments = null)
+    val post2 = Post(
+        7, ownerId = 7, createdBy = 45, likes = like, copyright = copy, donut = null,
+        geo = null, postSource = null, views = null, reposts = null, comments = null
+    )
     checkPost(post2)
 
-//    val attach: Attachment = PhotoAttachment(TypeAttachment.Photo(photo130 = null, photo_604 = null))
+//    val attach: Attachment = PhotoAttachment("MY PHOTO", Photo(photo130 = null, photo_604 = null))
 //    println(attach)
-//    val attach1: Attachment = DocumentAttachment(TypeAttachment.Document(url = null))
-//    println(attach1)
-//    val attach2: Attachment = VideoAttachment(TypeAttachment.Video(image = null))
-//    println(attach2)
-//    val attach3: Attachment = AudioAttachment(TypeAttachment.Audio(url = null))
-//    println(attach3)
-//    val attach4: Attachment = GraffitiAttachment(TypeAttachment.Graffiti(photo_130 = null, photo_604 = null))
-//    println(attach4)
 }
 
 fun checkPost(post: Post) {
